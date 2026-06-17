@@ -544,6 +544,7 @@
     </p>
     <div class="hero-ctas">
       <a href="#contact" class="btn btn-primary">💬 Let's Talk</a>
+      <a id="resume-btn" href="#" target="_blank" class="btn btn-outline">📄 Download Resume</a>
       <a href="#github" class="btn btn-outline">📊 GitHub Stats</a>
       <a href="https://linkedin.com/in/boopalanpichandi" target="_blank" class="btn btn-outline">🔗 LinkedIn</a>
     </div>
@@ -820,6 +821,13 @@
               <div class="contact-link-value">linkedin.com/in/boopalanpichandi</div>
             </div>
           </a>
+          <a class="contact-link" id="resume-contact-link" href="#" target="_blank">
+            <span class="contact-link-icon">📄</span>
+            <div>
+              <div class="contact-link-label">Resume</div>
+              <div class="contact-link-value">View / Download PDF</div>
+            </div>
+          </a>
           <a class="contact-link" href="https://github.com/stackbyboopalan" target="_blank">
             <span class="contact-link-icon">🐙</span>
             <div>
@@ -865,6 +873,18 @@
 </footer>
 
 <script>
+// ─── Resume Link ──────────────────────────────────────────────
+// Paste your Google Drive SHARE link below (set sharing to "Anyone with the link").
+// Whenever you update your resume on Drive, just edit this one line — no need to re-upload to GitHub.
+const RESUME_URL = 'https://drive.google.com/file/d/14s6qRms9BicaYqWJ3S1xufOh1W2vem2Y/view?usp=sharing';
+
+(function setResumeLinks() {
+  const heroBtn = document.getElementById('resume-btn');
+  const contactLink = document.getElementById('resume-contact-link');
+  if (heroBtn) heroBtn.href = RESUME_URL;
+  if (contactLink) contactLink.href = RESUME_URL;
+})();
+
 // ─── GitHub API ───────────────────────────────────────────────
 const GITHUB_USERNAME = 'stackbyboopalan';
 
