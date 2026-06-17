@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Boopalan Pichandi — Senior Full Stack Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --card: #151d2e;
+    --border: #1e2d45;
+    --accent: #2563eb;
+    --accent2: #38bdf8;
+    --gold: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --dim: #94a3b8;
+    --font: 'Space Grotesk', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,14,26,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-brand {
+    font-family: var(--mono);
+    font-size: 1rem; font-weight: 600;
+    color: var(--accent2);
+    letter-spacing: -0.5px;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 500;
+    color: var(--muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 100px 2rem 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute; top: 20%; left: 40%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(37,99,235,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 1100px; margin: auto; width: 100%; position: relative; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.3);
+    border-radius: 100px; padding: 4px 16px;
+    font-family: var(--mono); font-size: 0.75rem; color: var(--accent2);
+    margin-bottom: 1.5rem;
+  }
+  .blink { animation: blink 1.2s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  h1.hero-name {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700; line-height: 1.1;
+    letter-spacing: -2px;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  h1.hero-name span { color: var(--accent2); }
+  .hero-title {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--muted); font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+  .hero-desc {
+    max-width: 640px;
+    color: var(--dim); font-size: 1rem; line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 12px 24px; border-radius: 8px;
+    font-family: var(--font); font-size: 0.9rem; font-weight: 600;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+  }
+  .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; flex-wrap: wrap;
+    margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item { display: flex; flex-direction: column; }
+  .stat-num {
+    font-size: 2rem; font-weight: 700; color: #fff;
+    font-family: var(--mono); line-height: 1;
+  }
+  .stat-num span { color: var(--accent2); }
+  .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 2rem; }
+  .container { max-width: 1100px; margin: auto; }
+  .section-label {
+    font-family: var(--mono); font-size: 0.75rem;
+    color: var(--accent2); letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700; color: #fff;
+    letter-spacing: -1px; margin-bottom: 3rem;
+  }
+  .section-title em { color: var(--accent2); font-style: normal; }
+
+  /* ── GITHUB STATS ── */
+  #github { background: var(--surface); }
+  .github-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .github-avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    border: 2px solid var(--accent2);
+  }
+  .github-info h3 { font-size: 1.2rem; color: #fff; }
+  .github-info p { font-size: 0.85rem; color: var(--muted); }
+  .github-username {
+    font-family: var(--mono); font-size: 0.85rem; color: var(--accent2);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem; margin-bottom: 2.5rem;
+  }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: border-color 0.2s;
+  }
+  .stat-card:hover { border-color: var(--accent); }
+  .stat-card-icon { font-size: 1.4rem; }
+  .stat-card-value {
+    font-size: 1.8rem; font-weight: 700;
+    font-family: var(--mono); color: #fff;
+  }
+  .stat-card-label { font-size: 0.78rem; color: var(--muted); }
+
+  .lang-bar-wrap { margin-bottom: 2.5rem; }
+  .lang-bar-wrap h4 { font-size: 0.9rem; color: var(--dim); margin-bottom: 0.75rem; }
+  .lang-bar {
+    height: 10px; border-radius: 10px; overflow: hidden;
+    display: flex; gap: 2px;
+  }
+  .lang-seg { height: 100%; border-radius: 4px; }
+  .lang-legend {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .lang-dot {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-size: 0.78rem; color: var(--dim);
+  }
+  .lang-dot-circle {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+
+  .repos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .repo-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem;
+    transition: all 0.2s; text-decoration: none;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    cursor: pointer;
+  }
+  .repo-card:hover {
+    border-color: var(--accent2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(37,99,235,0.12);
+  }
+  .repo-name {
+    font-size: 0.95rem; font-weight: 600; color: var(--accent2);
+    font-family: var(--mono);
+  }
+  .repo-desc { font-size: 0.83rem; color: var(--dim); line-height: 1.5; }
+  .repo-meta {
+    display: flex; gap: 1rem; margin-top: auto; padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .repo-meta-item {
+    display: flex; align-items: center; gap: 0.3rem;
+    font-size: 0.75rem; color: var(--muted);
+    font-family: var(--mono);
+  }
+  .lang-badge {
+    width: 10px; height: 10px; border-radius: 50%;
+    display: inline-block;
+  }
+  .loading-state {
+    text-align: center; padding: 3rem;
+    color: var(--muted); font-family: var(--mono); font-size: 0.85rem;
+  }
+  .spinner {
+    display: inline-block; width: 20px; height: 20px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent2);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-right: 0.5rem; vertical-align: middle;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .contrib-chart-wrap { margin-top: 1.5rem; }
+  .contrib-chart-wrap h4 { font-size: 0.9rem; color: var(--dim); margin-bottom: 0.75rem; }
+  .contrib-grid {
+    display: grid;
+    grid-template-columns: repeat(53, 12px);
+    grid-template-rows: repeat(7, 12px);
+    gap: 2px;
+    overflow-x: auto; padding-bottom: 4px;
+  }
+  .contrib-cell {
+    width: 12px; height: 12px; border-radius: 2px;
+    background: var(--border);
+  }
+  .contrib-cell.l1 { background: #0e4429; }
+  .contrib-cell.l2 { background: #006d32; }
+  .contrib-cell.l3 { background: #26a641; }
+  .contrib-cell.l4 { background: #39d353; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-group {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .skill-group:hover { border-color: var(--accent); }
+  .skill-group-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+  .skill-group h4 {
+    font-size: 0.9rem; font-weight: 600; color: var(--dim);
+    margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    background: rgba(37,99,235,0.1);
+    border: 1px solid rgba(37,99,235,0.2);
+    color: var(--accent2);
+    font-family: var(--mono); font-size: 0.72rem;
+    padding: 4px 10px; border-radius: 6px;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--surface); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .timeline-item {
+    display: flex; gap: 2rem;
+    padding-left: 60px; position: relative;
+    margin-bottom: 3rem;
+  }
+  .timeline-dot {
+    position: absolute; left: 12px; top: 6px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.2);
+  }
+  .timeline-dot.current {
+    background: var(--green);
+    box-shadow: 0 0 0 4px rgba(16,185,129,0.2);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(16,185,129,0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(16,185,129,0.05); }
+  }
+  .timeline-content {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    flex: 1; transition: border-color 0.2s;
+  }
+  .timeline-content:hover { border-color: var(--accent); }
+  .timeline-meta {
+    display: flex; justify-content: space-between; align-items: start;
+    flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;
+  }
+  .timeline-company { font-weight: 700; color: #fff; font-size: 1.05rem; }
+  .timeline-role { font-size: 0.85rem; color: var(--accent2); margin-top: 2px; }
+  .timeline-period {
+    font-family: var(--mono); font-size: 0.75rem;
+    color: var(--muted);
+    background: var(--border); padding: 3px 10px; border-radius: 100px;
+  }
+  .timeline-bullets { list-style: none; margin-top: 1rem; }
+  .timeline-bullets li {
+    font-size: 0.85rem; color: var(--dim); line-height: 1.6;
+    padding: 4px 0 4px 1.2rem; position: relative;
+  }
+  .timeline-bullets li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--accent2); font-size: 0.75rem;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--bg); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.75rem;
+    display: flex; flex-direction: column;
+    transition: all 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .project-card:hover::before { opacity: 1; }
+  .project-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .project-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+  .project-desc { font-size: 0.85rem; color: var(--dim); line-height: 1.6; flex: 1; }
+  .project-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .project-tech {
+    font-family: var(--mono); font-size: 0.7rem;
+    color: var(--muted); background: var(--border);
+    padding: 3px 8px; border-radius: 4px;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--surface); }
+  .contact-wrap {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem;
+    align-items: start;
+  }
+  .contact-info h3 { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+  .contact-info p { font-size: 0.9rem; color: var(--dim); line-height: 1.7; margin-bottom: 1.5rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.88rem; color: var(--dim); text-decoration: none;
+    padding: 0.75rem 1rem;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; transition: all 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent2); color: var(--accent2); }
+  .contact-link-icon { font-size: 1.1rem; }
+  .contact-link-label { font-weight: 500; }
+  .contact-link-value { font-size: 0.78rem; color: var(--muted); font-family: var(--mono); }
+
+  /* AI Chat Contact */
+  .ai-contact {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+  }
+  .ai-chat-header {
+    background: linear-gradient(135deg, #1e2d45, #151d2e);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .ai-status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .ai-chat-title { font-size: 0.9rem; font-weight: 600; color: #fff; }
+  .ai-chat-sub { font-size: 0.75rem; color: var(--muted); }
+  .ai-chat-messages {
+    height: 260px; overflow-y: auto;
+    padding: 1rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    scroll-behavior: smooth;
+  }
+  .ai-chat-messages::-webkit-scrollbar { width: 4px; }
+  .ai-chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .ai-chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .chat-bubble {
+    max-width: 85%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-size: 0.83rem; line-height: 1.55;
+  }
+  .chat-bubble.ai {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--dim);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .chat-bubble.user {
+    background: var(--accent);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  .chat-bubble.ai.thinking {
+    display: flex; align-items: center; gap: 0.5rem;
+    color: var(--muted);
+  }
+  .typing-dots span {
+    display: inline-block;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--muted);
+    animation: tdot 1.2s ease-in-out infinite;
+    margin: 0 1px;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes tdot {
+    0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+    40% { transform: scale(1.2); opacity: 1; }
+  }
+  .ai-chat-input-row {
+    display: flex; gap: 0.5rem; padding: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .ai-chat-input {
+    flex: 1; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    font-family: var(--font); font-size: 0.83rem; color: var(--text);
+    outline: none; transition: border-color 0.2s;
+  }
+  .ai-chat-input::placeholder { color: var(--muted); }
+  .ai-chat-input:focus { border-color: var(--accent); }
+  .ai-chat-send {
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 8px;
+    padding: 0 1rem; cursor: pointer;
+    font-size: 1rem; transition: background 0.2s;
+  }
+  .ai-chat-send:hover { background: #1d4ed8; }
+  .ai-chat-send:disabled { opacity: 0.5; cursor: default; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 2rem; text-align: center;
+  }
+  footer p { font-size: 0.8rem; color: var(--muted); }
+  footer span { color: var(--accent2); font-family: var(--mono); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav .nav-links { display: none; }
+    .contact-wrap { grid-template-columns: 1fr; }
+    .timeline::before { left: 12px; }
+    .timeline-item { padding-left: 40px; }
+    .timeline-dot { left: 4px; }
+    .contrib-grid { grid-template-columns: repeat(26, 12px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">stackbyboopalan</div>
+  <ul class="nav-links">
+    <li><a href="#github">GitHub</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="blink">▌</span> Available for Senior Roles · FinTech · Cloud · AI
+    </div>
+    <h1 class="hero-name">Boopalan<br/><span>Pichandi</span></h1>
+    <p class="hero-title">Senior Full Stack Engineer · Infrastructure Architect · FinTech Platform Lead</p>
+    <p class="hero-desc">
+      5+ years building production-grade fintech platforms, cloud-native infrastructure, and AI-driven financial systems.
+      From React UI to Kubernetes — I own the full stack.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">💬 Let's Talk</a>
+      <a href="#github" class="btn btn-outline">📊 GitHub Stats</a>
+      <a href="https://linkedin.com/in/boopalanpichandi" target="_blank" class="btn btn-outline">🔗 LinkedIn</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">5<span>+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" id="hero-repos">—</div>
+        <div class="stat-label">GitHub Repos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" id="hero-stars">—</div>
+        <div class="stat-label">Total Stars</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3<span>+</span></div>
+        <div class="stat-label">FinTech Products</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">60<span>%</span></div>
+        <div class="stat-label">CI/CD Speedup</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GITHUB STATS -->
+<section id="github">
+  <div class="container">
+    <p class="section-label">// github</p>
+    <h2 class="section-title">Live <em>GitHub</em> Stats</h2>
+
+    <div id="github-content">
+      <div class="loading-state"><span class="spinner"></span> Fetching GitHub data…</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">// technical stack</p>
+    <h2 class="section-title">Skills &amp; <em>Technologies</em></h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-icon">⚛️</div>
+        <h4>Frontend</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">JavaScript ES2020+</span>
+          <span class="skill-tag">Responsive UI</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Figma</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">🐍</div>
+        <h4>Backend</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Microservices</span>
+          <span class="skill-tag">Event-Driven</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">☁️</div>
+        <h4>Cloud & Infra</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS EC2/S3/RDS</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">Lambda</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">🔄</div>
+        <h4>DevSecOps</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">GitLab CI</span>
+          <span class="skill-tag">CI/CD Pipelines</span>
+          <span class="skill-tag">Security Scanning</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">🗄️</div>
+        <h4>Databases</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Query Optimization</span>
+          <span class="skill-tag">Connection Pooling</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">📡</div>
+        <h4>Streaming & Messaging</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Apache Kafka</span>
+          <span class="skill-tag">Google Pub/Sub</span>
+          <span class="skill-tag">Apache Beam</span>
+          <span class="skill-tag">Real-Time Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">🤖</div>
+        <h4>AI / LLM</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">LLM Integration</span>
+          <span class="skill-tag">AI Agents</span>
+          <span class="skill-tag">ML Pipelines</span>
+          <span class="skill-tag">Financial Analytics AI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-icon">📊</div>
+        <h4>Observability</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">ELK Stack</span>
+          <span class="skill-tag">Elasticsearch</span>
+          <span class="skill-tag">Kibana</span>
+          <span class="skill-tag">Centralized Logging</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">// career</p>
+    <h2 class="section-title">Work <em>Experience</em></h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot current"></div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <div>
+              <div class="timeline-company">RhoFi Financial Technologies</div>
+              <div class="timeline-role">Senior Full Stack Engineer &amp; Infrastructure Architect — FinTech Platform Lead</div>
+            </div>
+            <div class="timeline-period">Mar 2024 – Present</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Architected and led full-stack development of a production-grade fintech investment intelligence platform integrating technical analysis, fundamental insights, and mutual fund analytics.</li>
+            <li>Built AI-powered financial chatbot enabling users to query portfolio data and get personalized investment guidance through conversational AI.</li>
+            <li>Architected event-driven data pipelines using Apache Kafka and Google Cloud Pub/Sub for real-time streaming of financial market data.</li>
+            <li>Deployed containerized microservices with Docker and Kubernetes on AWS and GCP — zero-downtime production releases.</li>
+            <li>Built end-to-end CI/CD pipelines via GitHub Actions / GitLab CI, reducing deployment cycles by 60%.</li>
+            <li>Designed PostgreSQL database architectures optimized for large-scale financial datasets with AWS RDS connection pooling.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <div>
+              <div class="timeline-company">HawkMonk FinTech</div>
+              <div class="timeline-role">DevSecOps Engineer</div>
+            </div>
+            <div class="timeline-period">Nov 2022 – Feb 2024</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Designed enterprise-grade CI/CD pipelines improving release velocity by 50%.</li>
+            <li>Enforced DevSecOps practices — security scanning, vulnerability management across full SDLC.</li>
+            <li>Managed containerized deployments with Docker achieving 99.9% uptime SLA.</li>
+            <li>Implemented centralized monitoring reducing MTTR for production incidents by 40%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <div>
+              <div class="timeline-company">HawkMonk FinTech</div>
+              <div class="timeline-role">Full Stack Developer</div>
+            </div>
+            <div class="timeline-period">May 2021 – Nov 2022</div>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Developed responsive production-grade web applications using React.js and RESTful APIs.</li>
+            <li>Built scalable backend services using Python (Flask) and Node.js with third-party API integrations.</li>
+            <li>Architected and optimized PostgreSQL schemas improving application response times by 35%.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">// key projects</p>
+    <h2 class="section-title">Featured <em>Projects</em></h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon">📈</div>
+        <div class="project-title">RhoFi — FinTech Investment Intelligence Platform</div>
+        <div class="project-desc">Production-grade investment platform integrating technical analysis, mutual fund analytics, real-time portfolio tracking, payment integration, and broker API connectivity (Zerodha/Kite). Sole technical owner from architecture to production.</div>
+        <div class="project-techs">
+          <span class="project-tech">React.js</span>
+          <span class="project-tech">Python</span>
+          <span class="project-tech">Flask</span>
+          <span class="project-tech">PostgreSQL</span>
+          <span class="project-tech">AWS</span>
+          <span class="project-tech">Kafka</span>
+          <span class="project-tech">Zerodha/Kite API</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">🤖</div>
+        <div class="project-title">AI Chatbot &amp; LLM Insight Engine</div>
+        <div class="project-desc">AI-powered financial chatbot enabling users to query portfolio data, receive market insights, and get personalized investment guidance — backed by LLM automation for research generation and analyst workflow acceleration.</div>
+        <div class="project-techs">
+          <span class="project-tech">LLM APIs</span>
+          <span class="project-tech">AI Agents</span>
+          <span class="project-tech">Python</span>
+          <span class="project-tech">Node.js</span>
+          <span class="project-tech">REST API</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">🔔</div>
+        <div class="project-title">Real-Time Notification Platform</div>
+        <div class="project-desc">Multi-channel notification system delivering WhatsApp, push, email, and in-app alerts for market events and portfolio triggers — powered by Apache Kafka, Google Pub/Sub, and event-driven microservices architecture.</div>
+        <div class="project-techs">
+          <span class="project-tech">Apache Kafka</span>
+          <span class="project-tech">Google Pub/Sub</span>
+          <span class="project-tech">WhatsApp API</span>
+          <span class="project-tech">Microservices</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">// contact</p>
+    <h2 class="section-title">Get in <em>Touch</em></h2>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>Let's build something great together.</h3>
+        <p>I'm open to senior engineering roles, FinTech architecture consulting, and interesting platform projects. The fastest way to reach me is through the AI chat widget — it has full context about my work.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:boopalanpichandi@proton.me">
+            <span class="contact-link-icon">📧</span>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">boopalanpichandi@proton.me</div>
+            </div>
+          </a>
+          <a class="contact-link" href="tel:+917418641082">
+            <span class="contact-link-icon">📱</span>
+            <div>
+              <div class="contact-link-label">Phone</div>
+              <div class="contact-link-value">+91 74186 41082</div>
+            </div>
+          </a>
+          <a class="contact-link" href="https://linkedin.com/in/boopalanpichandi" target="_blank">
+            <span class="contact-link-icon">🔗</span>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">linkedin.com/in/boopalanpichandi</div>
+            </div>
+          </a>
+          <a class="contact-link" href="https://github.com/stackbyboopalan" target="_blank">
+            <span class="contact-link-icon">🐙</span>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-value">github.com/stackbyboopalan</div>
+            </div>
+          </a>
+          <div class="contact-link" style="cursor:default;">
+            <span class="contact-link-icon">📍</span>
+            <div>
+              <div class="contact-link-label">Location</div>
+              <div class="contact-link-value">Bengaluru, India</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Chat Contact Widget -->
+      <div class="ai-contact">
+        <div class="ai-chat-header">
+          <div class="ai-status-dot"></div>
+          <div>
+            <div class="ai-chat-title">AI Assistant — Ask About Boopalan</div>
+            <div class="ai-chat-sub">Powered by Claude · Responds instantly</div>
+          </div>
+        </div>
+        <div class="ai-chat-messages" id="chat-messages">
+          <div class="chat-bubble ai">
+            👋 Hi! I'm an AI assistant with full context on Boopalan's experience and projects. Ask me anything — his skills, past work, availability, or what he's currently building at RhoFi!
+          </div>
+        </div>
+        <div class="ai-chat-input-row">
+          <input class="ai-chat-input" id="chat-input" type="text" placeholder="Ask about skills, experience, projects…" />
+          <button class="ai-chat-send" id="chat-send" onclick="sendMessage()">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built with ❤️ by <span>Boopalan Pichandi</span> · Bengaluru, India · <span>boopalanpichandi@proton.me</span></p>
+</footer>
+
+<script>
+// ─── GitHub API ───────────────────────────────────────────────
+const GITHUB_USERNAME = 'stackbyboopalan';
+
+const langColors = {
+  JavaScript: '#f1e05a', Python: '#3572A5', TypeScript: '#2b7489',
+  HTML: '#e34c26', CSS: '#563d7c', Shell: '#89e051',
+  Dockerfile: '#384d54', Vue: '#41b883', Go: '#00ADD8',
+  Java: '#b07219', Other: '#8892b0'
+};
+
+async function loadGitHub() {
+  const wrap = document.getElementById('github-content');
+  try {
+    const [userRes, reposRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
+      fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`)
+    ]);
+    if (!userRes.ok) throw new Error('GitHub user not found');
+    const user = await userRes.json();
+    const repos = reposRes.ok ? await reposRes.json() : [];
+
+    const publicRepos = repos.filter(r => !r.fork);
+    const totalStars = publicRepos.reduce((s, r) => s + r.stargazers_count, 0);
+    const totalForks = publicRepos.reduce((s, r) => s + r.forks_count, 0);
+
+    // lang breakdown
+    const langMap = {};
+    publicRepos.forEach(r => {
+      if (r.language) langMap[r.language] = (langMap[r.language] || 0) + 1;
+    });
+    const sortedLangs = Object.entries(langMap).sort((a,b) => b[1]-a[1]).slice(0, 6);
+    const langTotal = sortedLangs.reduce((s,[,c]) => s+c, 0);
+
+    // top repos
+    const topRepos = [...publicRepos].sort((a,b) => b.stargazers_count - a.stargazers_count).slice(0, 6);
+
+    // contribution grid (simulated using repo dates for visual)
+    const contribHTML = generateContribGrid(publicRepos);
+
+    // update hero stats
+    document.getElementById('hero-repos').textContent = user.public_repos;
+    document.getElementById('hero-stars').textContent = totalStars;
+
+    wrap.innerHTML = `
+      <div class="github-header">
+        <img class="github-avatar" src="${user.avatar_url}" alt="${user.name}" onerror="this.style.display='none'" />
+        <div class="github-info">
+          <h3>${user.name || GITHUB_USERNAME}</h3>
+          <p>${user.bio || 'Senior Full Stack Engineer · FinTech · Cloud · AI'}</p>
+          <span class="github-username">@${user.login}</span>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-icon">📦</div>
+          <div class="stat-card-value">${user.public_repos}</div>
+          <div class="stat-card-label">Public Repos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon">⭐</div>
+          <div class="stat-card-value">${totalStars}</div>
+          <div class="stat-card-label">Total Stars</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon">🍴</div>
+          <div class="stat-card-value">${totalForks}</div>
+          <div class="stat-card-label">Total Forks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon">👥</div>
+          <div class="stat-card-value">${user.followers}</div>
+          <div class="stat-card-label">Followers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon">📝</div>
+          <div class="stat-card-value">${publicRepos.length}</div>
+          <div class="stat-card-label">Original Repos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon">🏙️</div>
+          <div class="stat-card-value">${user.location ? user.location.split(',')[0] : 'India'}</div>
+          <div class="stat-card-label">Location</div>
+        </div>
+      </div>
+
+      ${sortedLangs.length > 0 ? `
+      <div class="lang-bar-wrap">
+        <h4>Top Languages</h4>
+        <div class="lang-bar">
+          ${sortedLangs.map(([lang, count]) => `
+            <div class="lang-seg" style="width:${(count/langTotal*100).toFixed(1)}%; background:${langColors[lang]||langColors.Other};"></div>
+          `).join('')}
+        </div>
+        <div class="lang-legend">
+          ${sortedLangs.map(([lang, count]) => `
+            <div class="lang-dot">
+              <div class="lang-dot-circle" style="background:${langColors[lang]||langColors.Other};"></div>
+              ${lang} ${(count/langTotal*100).toFixed(0)}%
+            </div>
+          `).join('')}
+        </div>
+      </div>` : ''}
+
+      <div class="contrib-chart-wrap">
+        <h4>Contribution Activity (last year)</h4>
+        ${contribHTML}
+      </div>
+
+      ${topRepos.length > 0 ? `
+      <div style="margin-top:2rem;">
+        <h4 style="font-size:0.9rem;color:var(--dim);margin-bottom:1rem;">Top Repositories</h4>
+        <div class="repos-grid">
+          ${topRepos.map(r => `
+            <a class="repo-card" href="${r.html_url}" target="_blank">
+              <div class="repo-name">${r.name}</div>
+              <div class="repo-desc">${r.description || 'No description provided.'}</div>
+              <div class="repo-meta">
+                ${r.language ? `<div class="repo-meta-item"><span class="lang-badge" style="background:${langColors[r.language]||langColors.Other}"></span>${r.language}</div>` : ''}
+                <div class="repo-meta-item">⭐ ${r.stargazers_count}</div>
+                <div class="repo-meta-item">🍴 ${r.forks_count}</div>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+      </div>` : `
+      <div style="margin-top:2rem; padding:2rem; text-align:center; color:var(--muted); border:1px dashed var(--border); border-radius:12px;">
+        <p style="font-size:0.9rem;">No public repositories found yet.<br/>
+        <a href="https://github.com/${GITHUB_USERNAME}" target="_blank" style="color:var(--accent2);">View GitHub profile →</a></p>
+      </div>`}
+    `;
+  } catch(e) {
+    wrap.innerHTML = `
+      <div style="text-align:center;padding:3rem;color:var(--muted);">
+        <div style="font-size:2rem;margin-bottom:1rem;">🐙</div>
+        <p style="margin-bottom:1rem;">GitHub stats temporarily unavailable.</p>
+        <a href="https://github.com/${GITHUB_USERNAME}" target="_blank" class="btn btn-outline" style="font-size:0.85rem;">
+          Visit GitHub Profile →
+        </a>
+      </div>
+    `;
+    document.getElementById('hero-repos').textContent = '—';
+    document.getElementById('hero-stars').textContent = '—';
+  }
+}
+
+function generateContribGrid(repos) {
+  // Simulate a contribution grid using repo push dates
+  const cells = 53 * 7;
+  const levels = Array(cells).fill(0);
+  const now = Date.now();
+  const oneYear = 365 * 24 * 3600 * 1000;
+  repos.forEach(r => {
+    if (r.pushed_at) {
+      const pushTime = new Date(r.pushed_at).getTime();
+      if (pushTime > now - oneYear) {
+        const daysAgo = Math.floor((now - pushTime) / (24 * 3600 * 1000));
+        const cellIdx = Math.max(0, cells - 1 - daysAgo);
+        if (cellIdx < cells) levels[cellIdx] = Math.min(4, levels[cellIdx] + 1);
+      }
+    }
+  });
+  return `<div class="contrib-grid">${levels.map(l => `<div class="contrib-cell ${l>0?'l'+l:''}"></div>`).join('')}</div>`;
+}
+
+// ─── AI Chat ──────────────────────────────────────────────────
+const SYSTEM_PROMPT = `You are an AI assistant embedded in Boopalan Pichandi's portfolio website. 
+You answer questions about Boopalan concisely and professionally.
+
+KEY FACTS:
+- Name: Boopalan Pichandi
+- Location: Bengaluru, India
+- Email: boopalanpichandi@proton.me
+- Phone: +91 7418641082
+- LinkedIn: linkedin.com/in/boopalanpichandi
+- Experience: 5+ years, Senior Full Stack Engineer & Infrastructure Architect
+
+CURRENT ROLE: Senior Full Stack Engineer & Infrastructure Architect at RhoFi Financial Technologies (Mar 2024 – Present)
+- Building a SEBI-registered fintech investment platform (INH000025090)
+- Tech: React.js, Python, Flask, Node.js, PostgreSQL, Kafka, GCP Pub/Sub, Docker, Kubernetes, AWS, GitHub Actions
+- Built AI chatbot for financial guidance, real-time WhatsApp notifications, CI/CD pipelines (60% faster)
+
+PREVIOUS:
+- DevSecOps Engineer at HawkMonk FinTech (Nov 2022 – Feb 2024): CI/CD pipelines, 50% faster releases, 99.9% uptime
+- Full Stack Developer at HawkMonk FinTech (May 2021 – Nov 2022): React.js apps, Flask/Node.js backends, PostgreSQL (35% faster queries)
+
+SKILLS: JavaScript, Python, React.js, Flask, Node.js, AWS (EC2/S3/RDS/Lambda), GCP, Docker, Kubernetes, PostgreSQL, MongoDB, Apache Kafka, Google Pub/Sub, ELK Stack, CI/CD, GitHub Actions, LLM/AI Integration
+
+EDUCATION: MCA – College of Engineering, Guindy, Anna University (2017-2020); B.Sc. Mathematics – Thiruvalluvar University (2014-2017)
+
+Keep responses under 100 words. Be warm and professional. If asked for hiring/contact: direct to boopalanpichandi@proton.me or LinkedIn.`;
+
+const chatHistory = [];
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const send = document.getElementById('chat-send');
+  const messages = document.getElementById('chat-messages');
+  const text = input.value.trim();
+  if (!text || send.disabled) return;
+
+  input.value = '';
+  send.disabled = true;
+
+  // User bubble
+  messages.innerHTML += `<div class="chat-bubble user">${escHtml(text)}</div>`;
+
+  // Thinking
+  const thinkId = 'think-' + Date.now();
+  messages.innerHTML += `<div class="chat-bubble ai thinking" id="${thinkId}">
+    <div class="typing-dots"><span></span><span></span><span></span></div>
+  </div>`;
+  messages.scrollTop = messages.scrollHeight;
+
+  chatHistory.push({ role: 'user', content: text });
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 300,
+        system: SYSTEM_PROMPT,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || "I couldn't fetch a response. Please email boopalanpichandi@proton.me directly!";
+    chatHistory.push({ role: 'assistant', content: reply });
+
+    const think = document.getElementById(thinkId);
+    if (think) think.outerHTML = `<div class="chat-bubble ai">${escHtml(reply)}</div>`;
+  } catch(e) {
+    const think = document.getElementById(thinkId);
+    if (think) think.outerHTML = `<div class="chat-bubble ai">Oops! Network issue. Reach Boopalan directly at <a href="mailto:boopalanpichandi@proton.me" style="color:var(--accent2);">boopalanpichandi@proton.me</a></div>`;
+  }
+
+  send.disabled = false;
+  messages.scrollTop = messages.scrollHeight;
+}
+
+document.getElementById('chat-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') sendMessage();
+});
+
+function escHtml(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Init
+loadGitHub();
+</script>
+</body>
+</html>
