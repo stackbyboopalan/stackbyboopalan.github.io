@@ -211,13 +211,7 @@ Keys and salts live in a secrets vault, every transaction has an audit trail, an
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=stackbyboopalan&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&show_icons=true" height="165" alt="GitHub stats"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=stackbyboopalan&theme=tokyonight&hide_border=true&layout=compact" height="165" alt="Top languages"/>
-
-![Contribution rate](https://img.shields.io/badge/Contribution%20rate-98%25-26a641?style=for-the-badge&logo=github&logoColor=white)
-![Weeks active](https://img.shields.io/badge/Weeks%20active-51%2F52-38bdf8?style=for-the-badge&logo=githubactions&logoColor=white)
-![Organization](https://img.shields.io/badge/Organization-RhoFi-10b981?style=for-the-badge&logo=github&logoColor=white)
-![Private repos](https://img.shields.io/badge/Work-Private%20RhoFi%20repos-6d4aff?style=for-the-badge&logo=lock&logoColor=white)
+<img src="assets/github-activity.svg" width="100%" alt="GitHub activity: 98% contribution rate, active 51 of 52 weeks, RhoFi organization"/>
 
 <sub>Most of my work is in private repositories of the RhoFi organization. My contribution graph counts that work without showing any code, repository names or details. Only my public repositories are visible here.</sub>
 
@@ -234,7 +228,6 @@ Keys and salts live in a secrets vault, every transaction has an audit trail, an
 [![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?logo=Reddit&logoColor=white)](https://reddit.com/user/boopalan-pichandi)
 
 [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/boopalanpichandi)
-[![](https://visitcount.itsvg.in/api?id=stackbyboopalan&icon=0&color=0)](https://visitcount.itsvg.in)
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:38bdf8,50:2563eb,100:0a0e1a&height=100&section=footer" width="100%" alt=""/>
 
